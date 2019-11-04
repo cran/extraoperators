@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>Logical Operators</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#header {
+text-align: center;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Logical Operators</h1>
+
+
+
+<p>To start, load the package.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(extraoperators)</span></code></pre></div>
+<div id="logical-comparisons" class="section level1">
+<h1>Logical Comparisons</h1>
+<p>This section covers basic logical comparisons and shows how they might be done in base <code>R</code> versus using the <code>extraoperators</code> package. Many of these are quite simple, but are defined so that later operators are possible.</p>
+<p>First let’s define our “data” as some numbers stored in <code>sample_numbers</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2"></a>sample_numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">9</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">99</span>)</span></code></pre></div>
+<p>Now we can do a series of simple logical comparisons which return a logical vector of <code>TRUE</code> or <code>FALSE</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="co">## base R: greater than 3?</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>sample_numbers <span class="op">&gt;</span><span class="st"> </span><span class="dv">3</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#&gt; [1]  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co">## base R: greater than or equal to 3?</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>sample_numbers <span class="op">&gt;=</span><span class="st"> </span><span class="dv">3</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt; [1]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="co">## base R: less than 3?</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a>sample_numbers <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt; [1] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="co">## base R: less than or equal to 3?</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a>sample_numbers <span class="op">&lt;=</span><span class="st"> </span><span class="dv">3</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="co">#&gt; [1] FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE</span></span></code></pre></div>
+<p>Unfortunately, we cannot use <code>&lt;</code> or <code>&gt;</code> in custom operators, so we use the substitutions: <code>g = &gt;</code> and <code>l = &lt;</code> and <code>e = =</code>. So that <code>ge = &lt;=</code> etc.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co">## extraoperators: greater than 3?</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>sample_numbers <span class="op">%g%</span><span class="st"> </span><span class="dv">3</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co">#&gt; [1]  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">## extraoperators: greater than or equal to 3?</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>sample_numbers <span class="op">%ge%</span><span class="st"> </span><span class="dv">3</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co">#&gt; [1]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co">## extraoperators: less than 3?</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>sample_numbers <span class="op">%l%</span><span class="st"> </span><span class="dv">3</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="co">#&gt; [1] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="co">## extraoperators: less than or equal to 3?</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a>sample_numbers <span class="op">%le%</span><span class="st"> </span><span class="dv">3</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="co">#&gt; [1] FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE</span></span></code></pre></div>
+<p>So far there is no real gain in using <code>extraoperators</code> but this changes for more complex operations. What if we want to know if our values fall within some range? This is a fairly common task, such as saying that valid ages must be between 0 and 100 years.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">## base R: greater than 3 and less than 10?</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>sample_numbers <span class="op">&gt;</span><span class="st"> </span><span class="dv">3</span> <span class="op">&amp;</span><span class="st"> </span>sample_numbers <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#&gt; [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">## base R: greater than or equal to 3 and less than 10?</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>sample_numbers <span class="op">&gt;=</span><span class="st"> </span><span class="dv">3</span> <span class="op">&amp;</span><span class="st"> </span>sample_numbers <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co">#&gt; [1]  TRUE FALSE  TRUE  TRUE  TRUE FALSE FALSE</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co">## base R: greater than 3 and less than or equal to 10?</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>sample_numbers <span class="op">&gt;</span><span class="st"> </span><span class="dv">3</span> <span class="op">&amp;</span><span class="st"> </span>sample_numbers <span class="op">&lt;=</span><span class="st"> </span><span class="dv">10</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="co">#&gt; [1]  TRUE FALSE  TRUE FALSE  TRUE  TRUE FALSE</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="co">## base R: greater than or equal to 3 and less than or equal to 10?</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a>sample_numbers <span class="op">&gt;=</span><span class="st"> </span><span class="dv">3</span> <span class="op">&amp;</span><span class="st"> </span>sample_numbers <span class="op">&lt;=</span><span class="st"> </span><span class="dv">10</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="co">#&gt; [1]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE</span></span></code></pre></div>
+<p>Base <code>R</code> accomplishes this through chaining of operations. <code>extraoperators</code> has built in range operators.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co">## extraoperators: greater than 3 and less than 10?</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>sample_numbers <span class="op">%gl%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">10</span>)</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co">#&gt; [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">## extraoperators: greater than or equal to 3 and less than 10?</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a>sample_numbers <span class="op">%gel%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">10</span>)</span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co">#&gt; [1]  TRUE FALSE  TRUE  TRUE  TRUE FALSE FALSE</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co">## extraoperators: greater than 3 and less than or equal to 10?</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a>sample_numbers <span class="op">%gle%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">10</span>)</span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="co">#&gt; [1]  TRUE FALSE  TRUE FALSE  TRUE  TRUE FALSE</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co">## extraoperators: greater than or equal to 3 and less than or equal to 10?</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a>sample_numbers <span class="op">%gele%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">10</span>)</span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="co">#&gt; [1]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE</span></span></code></pre></div>
+<p>Finally, <code>extraoperators</code> includes a <code>not in</code> operator, <code>%!in%</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co">## base R: not in 3 or 10</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="op">!</span>sample_numbers <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">10</span>)</span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt; [1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">## extraoperators: not in 3 or 10</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a>sample_numbers <span class="op">%!in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">10</span>)</span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt; [1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE</span></span></code></pre></div>
+<p>The next sections show a few examples of these operators augmented by prefixes: <code>?</code>, <code>s</code> and <code>a</code>.</p>
+</div>
+<div id="indices-which-values" class="section level1">
+<h1>Indices (Which Values?)</h1>
+<p>Sometimes we want to use a logical comparison and identify indices, such as to use in a loop. <code>extraoperators</code> does this by prefixing operators with <code>?</code> for “which”.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="co">## base R: what are the indices that match 3 and 10?</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="kw">which</span>(sample_numbers <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">10</span>))</span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">#&gt; [1] 4 6</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">## extraoperators: what are the indices that match 3 and 10?</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a>sample_numbers <span class="op">%?in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">10</span>)</span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co">#&gt; [1] 4 6</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="co">## base R: what are the indices for numbers between 3 and 10?</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="kw">which</span>(sample_numbers <span class="op">&gt;</span><span class="st"> </span><span class="dv">3</span> <span class="op">&amp;</span><span class="st"> </span>sample_numbers <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>)</span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="co">#&gt; [1] 1 3 5</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a></span>
+<span id="cb8-14"><a href="#cb8-14"></a><span class="co">## extraoperators: what are the indices for numbers between 3 and 10?</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a>sample_numbers <span class="op">%?gl%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">10</span>)</span>
+<span id="cb8-16"><a href="#cb8-16"></a><span class="co">#&gt; [1] 1 3 5</span></span></code></pre></div>
+<p>This can be readily incorporated in other code for further processing.</p>
+</div>
+<div id="subsetting" class="section level1">
+<h1>Subsetting</h1>
+<p>Another fairly common task is selecting only certain observations. For example, we might want to calculate the average of numbers within a plausible range (e.g., excluding outliers). In <code>extraoperators</code> subsetting is done by adding an <code>s</code> prefix.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="co">## base R: subset to only numbers between 3 and 10</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="kw">mean</span>(<span class="kw">subset</span>(sample_numbers, sample_numbers <span class="op">&gt;</span><span class="st"> </span><span class="dv">3</span> <span class="op">&amp;</span><span class="st"> </span>sample_numbers <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>))</span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">#&gt; [1] 6</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co">## or equivalently </span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="kw">mean</span>(sample_numbers[sample_numbers <span class="op">&gt;</span><span class="st"> </span><span class="dv">3</span> <span class="op">&amp;</span><span class="st"> </span>sample_numbers <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>])</span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="co">#&gt; [1] 6</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="co">## extraoperators: subset to only numbers between 3 and 10</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="kw">mean</span>(sample_numbers <span class="op">%sgl%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">10</span>))</span>
+<span id="cb9-12"><a href="#cb9-12"></a><span class="co">#&gt; [1] 6</span></span></code></pre></div>
+<p>Subsetting can be especially useful in quick exploratory analyses. Graphs are easily hard to read if there are extreme values. Subsetting makes it fast to “zoom in” on a specific range.</p>
+</div>
+<div id="all-or-none" class="section level1">
+<h1>All (or None)</h1>
+<p>Finally, you might have some quality controls in place for data. For example asserting that all ages are between 0 and 100. In <code>extraoperators</code> this is done by adding the prefix <code>a</code>.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="co">## base R: are all numbers between 0 and 10?</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="kw">all</span>(sample_numbers <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>sample_numbers <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>)</span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="co">## extraoperators: are all numbers between 0 and 10?</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a>sample_numbers <span class="op">%agl%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)</span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="co">## extraoperators: are all numbers between 0 and 100?</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a>sample_numbers <span class="op">%agl%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>)</span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<p>If you want to know the opposite, are no numbers between 0 and 100, we can negate the whole operation.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="co">## extraoperators: are NO numbers between 0 and 100?</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="op">!</span>sample_numbers <span class="op">%agl%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>)</span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="co">## extraoperators: are NO numbers between 55 and 60?</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="op">!</span>sample_numbers <span class="op">%agl%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">55</span>, <span class="dv">60</span>)</span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<p>There are also expanded all, subset, and which operators for equals and not equals.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="co">## extraoperators: are all values equal?</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>sample_numbers <span class="op">%a==%</span><span class="st"> </span>sample_numbers</span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="co">#&gt; [1] TRUE</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a></span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="co">## extraoperators: are all values NOT equal?</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>) <span class="op">%a!=%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">3</span>)</span>
+<span id="cb12-8"><a href="#cb12-8"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+</div>
+<div id="chaining" class="section level1">
+<h1>Chaining</h1>
+<p>In language, it is fairly natural to make a statement like this: “In my study, age should be between 18 to 65 and not be missing.” In <code>R</code>, the usual implementation of this is more equivalent to: “In my study, age should be greater than 18 and age should be less than 65 and age should not be missing.” <code>extraoperators</code> tries to facilitate something closer to the cleaner original statement using the chaining operator, <code>%c%</code>. The chaining operator chains a set of operations on the right hand side with the argument on its left hand side passed to each. To accomplish this, the right hand side must be quoted.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>age &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">19</span>, <span class="dv">30</span>, <span class="dv">90</span>, <span class="dv">50</span>, <span class="ot">NA</span>, <span class="dv">45</span>)</span>
+<span id="cb13-2"><a href="#cb13-2"></a>age <span class="op">%c%</span><span class="st"> &quot;(&gt; 18 &amp; &lt; 65) &amp; !is.na&quot;</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="co">#&gt; [1]  TRUE  TRUE FALSE  TRUE FALSE  TRUE</span></span></code></pre></div>
+<p>Because the right hand side of the chaining operator is a character string that is parsed, it is possible to do some special things in it. <code>is.na</code>, <code>!is.na</code>, <code>is.nan</code>, and <code>!is.nan</code> are special characters that do not require any further value to work correctly. As shown, parentheses also work, which allows fine grained control over exactly what is intended. For example if we expect only adults are in the study, but those who refused to report their age were coded -9 and people who failed to complete the questionnaire at all are missing.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>age &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">19</span>, <span class="dv">30</span>, <span class="dv">90</span>, <span class="dv">50</span>, <span class="ot">NA</span>, <span class="dv">16</span>, <span class="dv">-9</span>)</span>
+<span id="cb14-2"><a href="#cb14-2"></a>age <span class="op">%c%</span><span class="st"> &quot;(&gt; 18 | == -9) &amp; !is.na&quot;</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="co">#&gt; [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE</span></span></code></pre></div>
+<p>As with all operators, there are prefixes for all, subset, and which.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>age <span class="op">%ac%</span><span class="st"> &quot;(&gt; 18 | == -9) &amp; !is.na&quot;</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a></span>
+<span id="cb15-4"><a href="#cb15-4"></a>age <span class="op">%ac%</span><span class="st"> &quot;&gt; -Inf&quot;</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="co">#&gt; [1] NA</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>age <span class="op">%ac%</span><span class="st"> &quot;&gt; -Inf &amp; !is.na&quot;</span></span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb15-8"><a href="#cb15-8"></a>age <span class="op">%ac%</span><span class="st"> &quot;&gt; -Inf | is.na&quot;</span></span>
+<span id="cb15-9"><a href="#cb15-9"></a><span class="co">#&gt; [1] TRUE</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a></span>
+<span id="cb15-11"><a href="#cb15-11"></a>age <span class="op">%sc%</span><span class="st"> &quot;(&gt; 18 | == -9) &amp; !is.na&quot;</span></span>
+<span id="cb15-12"><a href="#cb15-12"></a><span class="co">#&gt; [1] 19 30 90 50 -9</span></span>
+<span id="cb15-13"><a href="#cb15-13"></a></span>
+<span id="cb15-14"><a href="#cb15-14"></a>age <span class="op">%?c%</span><span class="st"> &quot;(&gt; 18 | == -9) &amp; !is.na&quot;</span></span>
+<span id="cb15-15"><a href="#cb15-15"></a><span class="co">#&gt; [1] 1 2 3 4 7</span></span></code></pre></div>
+</div>
+<div id="interval-notation-operator" class="section level1">
+<h1>Interval Notation Operator</h1>
+<p>In math, interval notation often is used. For example, we might write: <span class="math inline">\(x \in (1, 5) \cup [6, \infty)\)</span> to indicate that <em>x</em> is between the intervals 1 to 5 (not including 1 or 5) or between 6 and positive infinity, including 6 but not positive infinity. The interval notation operator, <code>%e%</code> let’s you use fairly similar language in <code>R</code>. “|” is the union operator and “&amp;” is the intersect operator. Variables are allowed but no functions as these cannot be parsed.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">300</span>) <span class="op">%e%</span><span class="st"> &quot;(1, 5) | [6, Inf)&quot;</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="co">#&gt; [1] FALSE  TRUE  TRUE  TRUE</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a></span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="co">## this is OK</span></span>
+<span id="cb16-6"><a href="#cb16-6"></a>x &lt;-<span class="st"> </span><span class="kw">max</span>(mtcars<span class="op">$</span>mpg)</span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">300</span>) <span class="op">%e%</span><span class="st"> &quot;(1, 5) | [6, x)&quot;</span></span>
+<span id="cb16-8"><a href="#cb16-8"></a><span class="co">#&gt; [1] FALSE  TRUE  TRUE FALSE</span></span>
+<span id="cb16-9"><a href="#cb16-9"></a></span>
+<span id="cb16-10"><a href="#cb16-10"></a><span class="co">## ## this would NOT be OK</span></span>
+<span id="cb16-11"><a href="#cb16-11"></a><span class="co">## c(1, 2, 6, 300) %e% &quot;(1, 5) | [6, max(mtcars$mpg))&quot;</span></span></code></pre></div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
